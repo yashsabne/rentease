@@ -33,8 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/rentEase');
-
+ 
 mongoose.connect(process.env.MONGO_URL)
 
 const userSchema = new mongoose.Schema({
