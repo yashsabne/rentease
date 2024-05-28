@@ -32,8 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Connect to MongoDB
-
+// Connect to MongoDB 
 mongoose.connect(process.env.MONGO_URL)
 
 const userSchema = new mongoose.Schema({
@@ -391,7 +390,7 @@ app.post('/rent-sell-home/final-submit', checkLogin, async (req, res) => {
         const user = await User.findById(userId);
         const ownerDetails = req.session.ownerDetails;
         const propertyDetails = req.session.propertyDetails;
-        const propertyImage = req.session.propertyImage;
+        const propertyImages = req.session.propertyImage;
 
         user.details.push({
             ownerDetails,
