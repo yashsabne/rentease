@@ -10,7 +10,7 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-// const { config, configDotenv } = require('dotenv');
+const { config, configDotenv } = require('dotenv');
 const axios = require('axios');
 const Razorpay = require('razorpay');
 const multer = require('multer');
@@ -19,7 +19,7 @@ const app = express();
 const PORT = 3000;
 const findOrCreate = require('mongoose-findorcreate');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const passportLocalMongoose = require('npm ');
+const passportLocalMongoose = require('passport-local-mongoose');
 
 // Set up view engine (assuming you're using EJS)
 app.set('view engine', 'ejs');
@@ -33,14 +33,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-<<<<<<< HEAD
-mongoose.connect('mongodb://localhost/rentEase');
 
-// mongoose.connect(process.env.MONGO_URL)
-=======
- 
 mongoose.connect(process.env.MONGO_URL)
->>>>>>> 070ff56c8f8f86f9087f6cf53e14afb8906d5906
 
 const userSchema = new mongoose.Schema({
     username: String,
@@ -354,8 +348,6 @@ app.post('/rent-sell-home/submit-first', checkLogin, async (req, res) => {
     try {
         const { nameOfHouseOwner, emailOfOwner,country, ownerPhnNumber, pincodeOfOwner,propertyType,rentOrSell,cityName } = req.body;
         
-        console.log(req.body.rentOrSell);
-        
         req.session.ownerDetails = { nameOfHouseOwner, emailOfOwner,country, ownerPhnNumber, pincodeOfOwner,propertyType,rentOrSell,cityName, };
         res.redirect('/rent-sell-home?page=secondPage');
     } catch (error) {
@@ -399,7 +391,7 @@ app.post('/rent-sell-home/final-submit', checkLogin, async (req, res) => {
         const user = await User.findById(userId);
         const ownerDetails = req.session.ownerDetails;
         const propertyDetails = req.session.propertyDetails;
-        const propertyImages = req.session.propertyImage;
+        const propertyImage = req.session.propertyImage;
 
         user.details.push({
             ownerDetails,
@@ -408,6 +400,7 @@ app.post('/rent-sell-home/final-submit', checkLogin, async (req, res) => {
         });
         await user.save();
         // Clear session data after saving to database
+        req.session.ownerDetails = null;
         req.session.propertyDetails = null;
         req.session.propertyImage = null;
 
