@@ -19,7 +19,7 @@ const app = express();
 const PORT = 3000;
 const findOrCreate = require('mongoose-findorcreate');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const passportLocalMongoose = require('passport-local-mongoose');
+const passportLocalMongoose = require('npm ');
 
 // Set up view engine (assuming you're using EJS)
 app.set('view engine', 'ejs');
@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/rentEase');
 
-mongoose.connect(process.env.MONGO_URL)
+// mongoose.connect(process.env.MONGO_URL)
 
 const userSchema = new mongoose.Schema({
     username: String,
@@ -394,16 +394,15 @@ app.post('/rent-sell-home/final-submit', checkLogin, async (req, res) => {
         const user = await User.findById(userId);
         const ownerDetails = req.session.ownerDetails;
         const propertyDetails = req.session.propertyDetails;
-        const propertyImage = req.session.propertyImage;
+        const propertyImages = req.session.propertyImage;
 
         user.details.push({
             ownerDetails,
             propertyDetails,
-            propertyImages: [propertyImage]
+            propertyImages 
         });
         await user.save();
         // Clear session data after saving to database
-        req.session.ownerDetails = null;
         req.session.propertyDetails = null;
         req.session.propertyImage = null;
 
