@@ -98,52 +98,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-// passport.use(User.createStrategy());
-
-// passport.serializeUser(function (user, done) {
-//     done(null, user.id);
-// });
-
-// passport.deserializeUser(function (id, done) {
-//     User.findById(id, function (err, user) {
-//         done(err, user);
-//     });
-// });
-
-// passport.deserializeUser(function(id, done) {
-//   User.findById(id, function(err, user) {
-//     done(err, user);
-//   });
-// // });
-
-// passport.use(new GoogleStrategy({
-//     clientID: process.env.CLIENT_ID,
-//     clientSecret: process.env.CLIENT_SECRET,
-//     callbackURL: "http://localhost:3000/auth/google/chat-app",
-//     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
-// },
-//     function (accessToken, refreshToken, profile, cb) {
-//         console.log(profile.displayName);
-//         User.findOrCreate({ googleId: profile.id }, function (err, user) {
-//             return cb(err, user);
-//         });
-//     }
-// ));
-
-//===========SUCCESSFULLY MADE AUTHENTIATION FOR LOGIN WITH GOOGLE============//
-
-// app.get("/auth/google",
-//     passport.authenticate("google", { scope: ["profile"] })
-// );
-
-// app.get("/auth/google/chat-app",
-//     passport.authenticate("google", { failureRedirect: "/" }),
-//     function (req, res) {
-//         res.render("index", { messForClient: "Successfully logged in with Google" });
-//     }
-// );
-
+ 
 app.get('/', async (req, res) => {
     try {
         const userId = req.session.userId;
@@ -656,8 +611,8 @@ app.get('/approve-connect/:propertyId/:userId', async (req, res) => {
 const crypto = require('crypto');
  
 const razorpay = new Razorpay({
-    key_id: process.env.key_id,
-    key_secret: process.env.key_secret
+    key_id: process.env.KEY_ID,
+    key_secret: process.env.KEY_SECRET
 });
 
 app.post('/api/razorpay/createOrder', async (req, res) => {

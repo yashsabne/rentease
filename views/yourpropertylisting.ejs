@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -11,10 +12,11 @@
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/yourlist.css">
     <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
-    <title>Your listed properties</title>
+    <link rel="stylesheet" href="css/yourlist.css">
+    <title>Your property listing</title>
 </head>
+ 
 <body>
 
     <div class="sidebarAndToggle"> 
@@ -28,8 +30,12 @@
       <a href="/properties">Buy home </a>
       <a href="/RentEase-about-us">About us</a>
     </div> 
+    
+ 
     </div>
     
+     
+
     <div class="content">
         <%- include('partials/nav.ejs') %> <!--including navbar-->
         <main>
@@ -58,9 +64,9 @@
                             <div class="property-images">
                                 <h3 style="border-bottom: 0;">Property <span style="border-bottom: 2px solid black;">Images:</span></h3> 
  
-                                <% if (listing.propertyImages && listing.propertyImages.length > 0) { %>
+                             <% if (listing.propertyImages && listing.propertyImages.length > 0) { %>
                                     <% listing.propertyImages.forEach((image, index) => { %>
-                                        <img src="/image/<%= image._id %>" alt="<%= image.name %>">    
+                                       <img src="/image/<%= image._id %>" alt="<%= image.name %>">    
                                     <% }) %>
                                 <% } else { %>
                                     <p>No images found for this property.</p>
