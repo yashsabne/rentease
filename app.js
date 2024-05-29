@@ -7,7 +7,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const path = require('path');
 const fs = require('fs');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const { config, configDotenv } = require('dotenv');
@@ -256,7 +256,7 @@ app.post("/login", async function (req, res) {
         const password = req.body.password;
         const foundUser = await User.findOne({ username });
         if (foundUser) {
-            const passwordMatch = await bcrypt.compare(password, foundUser.password);
+            const passwordMatch = await bcrypt.compareSync(password, foundUser.password);
             if (passwordMatch) {
                 req.session.userId = foundUser._id;
                 req.session.save();
