@@ -35,6 +35,7 @@ app.use(bodyParser.json());
 // Connect to MongoDB 
 mongoose.connect(process.env.MONGO_URL)
 
+
 const userSchema = new mongoose.Schema({
     username: String,
     password: String,
@@ -390,7 +391,7 @@ app.post('/rent-sell-home/final-submit', checkLogin, async (req, res) => {
         const user = await User.findById(userId);
         const ownerDetails = req.session.ownerDetails;
         const propertyDetails = req.session.propertyDetails;
-        const propertyImages = req.session.propertyImage;
+        const propertyImages = req.session.propertyImages;
 
         user.details.push({
             ownerDetails,
@@ -743,7 +744,6 @@ app.post('/got-number-onmail',async (req,res) => {
     } catch (error) {
         
     }
-
 })
 
 app.post("/get-contact", async function (req, res) {
@@ -767,6 +767,56 @@ app.post("/get-contact", async function (req, res) {
         res.status(500).render("error", { errorMessage: "Internal Server Error" });
     }
 });
+
+app.get('/thank-you-contact',(req,res) =>{
+    res.render('thank-you-contact')
+})
+
+app.get('/contact-us',(req,res) =>{
+    res.render('contact-us')
+})
+
+app.post('/contact-submit', async (req, res) => {
+    const { name, email, subject, message } = req.body;
+
+    try {
+  
+        const nodemailer = require('nodemailer');
+        const transporter = nodemailer.createTransport({
+            host: process.env.hostEmail,
+            port: 587,
+            secure: false,
+            auth: {
+                user: process.env.userEmail,
+                pass: process.env.passEmail
+            }
+        });
+
+        const mailOptions = {
+            from: email,
+            to: 'yashsabne39@gmail.com',
+            subject: `Contact Form: ${subject}`,
+            text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+        };
+
+        
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error(error);
+                return res.status(500).send('Error sending email');
+            } else {
+                // console.log('Email sent: ' + info.response);
+                // return res.status(200).send('Email sent successfully');
+                 
+            }
+        });
+        res.redirect('/thank-you-contact');
+    } catch (error) {
+        console.error('Error sending contact form:', error);
+        res.status(500).send('Something went wrong, please try again later.');
+    }
+});
+
 
 app.get("/termscondition",(req,res) => {
     res.render("termscondition")
