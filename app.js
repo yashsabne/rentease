@@ -612,7 +612,7 @@ const crypto = require('crypto');
  
 const razorpay = new Razorpay({
     key_id: process.env.KEY_ID,
-    key_secret: process.env.KEY_SECRET
+    key_secret: process.env.key_secret
 });
 
 app.post('/api/razorpay/createOrder', async (req, res) => {
