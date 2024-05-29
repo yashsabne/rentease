@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://localhost:3000/rent-sell-home -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Required meta tags -->
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./Document_files/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="./Document_files/style.css">
+  <link rel="stylesheet" href="./Document_files/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <title>Document</title>
+<style>
+
+</style></head>
+
+
+
+<body>
+
+  <div class="sidebarAndToggle"> 
+    <div class="sidebar">
+  <a class="active" href="http://localhost:3000/home">Home</a>
+ 
+  <a href="http://localhost:3000/rent-sell-home">Rent or Sell a Home</a>
+      
+  <a href="http://localhost:3000/rent-sell-home#rental">Search For rental home</a>
+
+  <a href="http://localhost:3000/rent-sell-home#contact">Buy home </a>
+  <a href="http://localhost:3000/rent-sell-home#sell">Sell home</a>
+  <a href="http://localhost:3000/RentEase-about-us">About us</a>
+</div> 
+
+<!-- <div class="toggleBtn">
+    <button>toggle it</button>
+</div> -->
+
+
+</div>
+
+  <!--including sidebar-->
+    <div class="content">
+      <nav class="navbar">
+    <a class="navbar-brand">
+      <img src="./Document_files/property-logos-template-260nw-774486358.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+      RentEase
+    </a>
+
+   
+
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa-solid fa-circle-user" style="color: 00539C;"></i></button> 
+      <span id="appreciate" style="font-weight: 600;font-size: large;">  
+        Login please...
+        </span>
+      <div class="dropdown-content">
+        <a class="openModalLink">login</a> 
+        <a class="openModalLinkReg">register</a>
+        <a href="http://localhost:3000/logout">logout</a>
+      <hr style="margin-top: -1px;">
+        <a href="http://localhost:3000/rent-sell-home#" style="margin-top: -10px;">Need help?</a>
+      </div>
+    </div>
+
+ 
+    <div class="dropdown-notification">
+      <button class="dropbtnNotification"><i class="fa-regular fa-bell"></i> notification</button>
+      <div class="dropdown-contentnotify  ">
+        <ul>
+          <li>Mr. Yash has shown interest in their property.</li>
+          <li>Mr. Ram is requested to connect with you.</li>
+          <li>logged in ASUSLSP-422 on 12/03/2024GMT12:23:42:21.</li>
+        </ul>
+      </div>
+    </div>
+  </nav> <!--including navbar-->
+
+
+
+        <main>
+          <div class="div-specification">
+            <h3 id="statement"> World's Best NoBrokerage Property Site..made by YASH</h3>
+          </div>
+
+          <hr>
+          <div class="carousel">
+            <div class="carousel-container">
+
+              <div class="carousel-item active">
+                <img src="./Document_files/buyimg.jpg" alt="" srcset="">
+              </div>
+              <div class="carousel-item">
+                <img src="./Document_files/homeimg.jpg" alt="" srcset="">
+              </div>
+              <div class="carousel-item">
+                <img src="./Document_files/saleimg.jpg" alt="" srcset="">
+              </div>
+              <div class="carousel-item">
+                <img src="./Document_files/rentimg.jpg" alt="" srcset="">
+              </div>
+            </div>
+          </div>
+          <hr>
+
+          <div class="div-text">
+            <h5 style="text-align: center;">"GO and sell home or buy home or rent your home or take the home on rent by contacting to direct seller or buyer...through us"</h5>
+            <small style="position: absolute;right: 0;padding-right: 10px;"><a href="http://localhost:3000/rent-sell-home">T&amp;C apply </a></small>
+          </div>
+
+          <footer>
+            <p>©<span id="copyYear"></span> RentEase - Yash Sabne. All Rights Reserved.</p>
+        </footer>
+
+          <div>
+
+          </div>
+
+
+
+
+        </main>
+
+        <!-- model for login start -->
+        <div class="modal" id="myModal" style="display: flex;">
+          <div id="body-login">
+            <div class="container-login">
+              <div class="login-modal">
+                <div class="log-flex">
+                  <div class="login-register">
+                    <!-- Makes POST request to /login route -->
+                    <form action="http://localhost:3000/login" method="POST">
+                      <div class="login-register-form">
+
+                        <div class="logo-login">
+                          <a class="navbar-brand brandName">
+                            <img src="./Document_files/property-logos-template-260nw-774486358.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                            RentEase
+                          </a>
+                        </div>
+
+                        <div class="form-group">
+                          <input type="email" id="imput-u" class="form-control" name="username" placeholder="Username or email address" required="">
+                        </div>
+                        <div class="form-group">
+                          <input type="password" id="imput-p" class="form-control" name="password" placeholder="password" required="">
+                        </div>
+                        
+                            <button type="submit" class="btn btn-dark ba" id="funNAme">Login</button>
+                      </div>
+                    </form>
+
+                    <div style="display: flex;align-items: center;" class="div-or-line">
+                      <div class="div1"></div>
+                      <div class="div2">or</div>
+                      <div class="div1"></div>
+                    </div>
+
+                    <div class="other-login">
+                      <span> <a href="http://localhost:3000/auth/google"> <i class="fa-brands fa-google"></i> login with google</a></span>
+                    </div>
+                    <span><a href="http://localhost:3000/rent-sell-home">forget your password ?</a></span>
+
+                  </div>
+                  <div class="login-register new-register">
+                    Don't have an account?<a class="openModalLinkReg" style="cursor: pointer;">Sign up here</a> <br>
+
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- model for login end -->
+        <!-- model for register start -->
+        <div class="modal" id="myModals">
+
+          <div class="main-cont-register">
+
+            <div class="log-flex">
+              <div class="for-register-only">
+                <div class="login-register">
+
+                  <form action="http://localhost:3000/register" method="POST">
+
+                    <div class="login-register-form">
+                      <div class="logo-login">
+                        <a class="navbar-brand brandName" href="http://localhost:3000/">
+                          <img src="./Document_files/property-logos-template-260nw-774486358.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                          RentEase
+                        </a>
+                      </div>
+
+
+
+                      <div class="emailOtp">
+
+                        <div class="form-group d-flex">
+                          <input type="email" id="imput-ur" style="background-color: aliceblue;" class="form-control emailSpecialInput" name="username" placeholder="Email address" required="">
+                          <button type="button" class="btn btn-dark otprelated" id="sendOTP">Send OTP</button>
+                        </div>
+                        <div class="form-group d-flex" id="otpField" style=" margin-top: 10px;">
+                          <input type="text" id="imput-otpr" style="background-color: aliceblue;" class="form-control emailSpecialInput" name="otp" placeholder="Enter OTP" required="">
+                          <button type="button" class="btn btn-dark otprelated" id="verifyOTP">Verify OTP</button>
+                        </div>
+                      </div>
+
+
+
+
+
+                      <div class="form-group">
+                        <input type="text" id="imput-name" class="form-control" autocomplete="off" name="fullName" placeholder="Full Name" required="">
+                      </div>
+
+                      <div class="form-group">
+                        <input type="password" id="imput-p" class="form-control" autocomplete="off" name="password" placeholder="Password" required="">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" id="imput-cnf" class="form-control" autocomplete="off" name="cnfpass" placeholder="Confirm Password" required="">
+                      </div>
+                      <span class="passcheck"><input type="checkbox" onclick="viewPass()" id="passcheck"><label for="passcheck">Show Password</label></span>
+
+
+                      <div class="form-group">
+                        <input type="number" class="form-control" id="imput-c" placeholder="Phone Number" name="phone" required="">
+                      </div>
+
+                      <div class="form-group">
+                        <input type="date" id="imput-dob" class="form-control" name="dob" autocomplete="off" placeholder="DOB" required="">
+                      </div>
+
+                      <button type="submit" class="btn btn-dark ba" id="funNAme">Register</button>
+                    </div>
+                  </form>
+
+                  <div style="display: flex;align-items: center;" class="div-or-line">
+                    <div class="div1"></div>
+                    <div class="div2">or</div>
+                    <div class="div1"></div>
+                  </div>
+
+                  <div class="other-login">
+                    <span> <a href="http://localhost:3000/auth/google"> <i class="fa-brands fa-google"></i> login with google</a></span>
+                  </div>
+                  <small><a href="http://localhost:3000/rent-sell-home" style="text-align: center; ">forgot password?</a></small>
+                  <div class="login-register new-register">
+                    Already have an account?<a class="openModalLink" style="cursor: pointer;">Login here</a> <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- model for register end -->
+
+
+
+
+        <script src="./Document_files/jquery-3.6.0.min.js.download"></script>
+        <script>
+          $(document).ready(function () {
+            var currentIndex = 0;
+            var items = $('.carousel-item');
+            var totalItems = items.length;
+
+            function cycleItems() {
+              var item = $('.carousel-item').eq(currentIndex);
+              items.removeClass('active');
+              item.addClass('active');
+            }
+
+            var autoSlide = setInterval(function () {
+              currentIndex += 1;
+              if (currentIndex > totalItems - 1) {
+                currentIndex = 0;
+              }
+              cycleItems();
+            }, 3000);
+
+          });
+
+          function viewPass() {
+      const passview = document.getElementById("imput-p");
+
+      if (passview.type === 'password') {
+        passview.type = 'text'
+      }
+      else {
+        passview.type = 'password'
+      }
+      const cnf = document.getElementById("imput-cnf");
+
+      if (cnf.type === 'password') {
+        cnf.type = 'text'
+      }
+      else {
+        cnf.type = 'password'
+      }
+    }
+
+    document.getElementById("sendOTP").addEventListener("click", async function() {
+    const username = document.getElementById("imput-ur").value;
+    console.log(username);
+
+    fetch("/send-email-otp", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username: username })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error sending OTP');
+        }
+        return response.text(); // Return response as text
+    })
+    .then(data => {
+        console.log(data);
+        // alert("OTP sent successfully.");
+        console.log("otp sent");
+        document.getElementById("sendOTP").innerHTML = "otp sucessfully sent";
+        document.getElementById("otpField").style.display = "block";
+        document.getElementById("verifyOTP").style.display = "block";
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Error sending OTP please ensure correct email");
+    });
+});
+
+    document.getElementById("verifyOTP").addEventListener("click", async () => {
+      const username = document.getElementById("imput-ur").value;
+      const otp = document.getElementById("imput-otpr").value;
+  
+      try {
+        const response = await fetch("/verify-otp", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ username, otp })
+        });
+  
+        const result = await response.json();
+  
+        if (result.success) {
+          // OTP verification successful, enable the register button
+         
+          document.getElementById("funNAme").disabled = false;
+          document.getElementById("verifyOTP").innerHTML = "OTP Verified"
+          document.getElementById("otpField").style.display = "none";
+          document.getElementById("sendOTP").style.display = "none";
+          document.getElementById("imput-otp").style.display = "none";
+
+          const verifyBtn = document.getElementById("verifyOTP");
+
+          setTimeout(() => {
+            verifyBtn.style.display = 'none'
+          }, 1000);
+
+} else {
+          // OTP verification failed, display error message
+          alert("Incorrect OTP. Please try again.");
+        }
+      } catch (error) {
+       
+        console.log(error)
+      }
+    });
+
+        </script>
+
+        <script src="./Document_files/main.js.download"></script>
+        <script src="./Document_files/jquery-3.4.1.slim.min.js.download" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="./Document_files/popper.min.js.download" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="./Document_files/bootstrap.min.js.download" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+</div></body></html>
