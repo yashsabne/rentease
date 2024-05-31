@@ -1,122 +1,88 @@
 <!doctype html>
-<html lang="en">
+<html lang=en>
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/properties.css">
-    <title>RentEase - Properties</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css integrity=sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin=anonymous referrerpolicy=no-referrer>
+<link rel="shortcut icon" href=imgs/logo.png type=image/x-icon>
+<link rel=stylesheet href=css/style.css>
+<link rel=stylesheet href=css/properties.css>
+<title>RentEase - Properties</title>
 </head>
- 
 <body>
-    <div class="sidebar"> 
-        <div class="filter-section">
-            <h5 style="color: #007bff;">Apply filters:</h5>
-            <label for="RentOrSell">on Rent or buying:</label>
-            <select id="RentOrSell" name="RentOrSell">
-                <option value="">choose here</option>
-                <option value="rent">On Rent</option>
-                <option value="sell">Buying</option>
-            </select>
+<%- include('partials/nav.ejs') %>
+<div class=sidebar>
+<div class=filter-section>
+<h5 style=color:#007bff>Apply filters:</h5>
+<label for=RentOrSell>on Rent or buying:</label>
+<select id=RentOrSell name=RentOrSell>
+<option value="">choose here</option>
+<option value=rent>On Rent</option>
+<option value=sell>Buying</option>
+</select>
+<label for=minPrice>Min Price (INR):</label>
+<input type=range id=minPrice name=priceRange min=0 max=100000 step=1000 value=0>
+<p>Selected Min Price: <span id=minPriceValue>0</span></p>
+<label for=maxPrice>Max Price (INR):</label>
+<input type=range id=maxPrice name=priceRange min=0 max=1000000 step=1000 value=0>
+<p>Selected Max Price: <span id=maxPriceValue>0</span></p>
+<label for=pincode>Pincode:</label>
+<input type=number id=pincode name=pincode placeholder=Pincode>
+<label for=type>Property Type:</label>
+<select id=typeProperty name=typeProperty>
+<option value="">Select type</option>
+<option value=Residential>Residential</option>
+<option value=Commercial>Commercial</option>
+</select>
+<label for=type>Property Live Type:</label>
+<select id=typePropertyLiveType name=typePropertyLiveType>
+<option value="">Select type</option>
+<option value=apartment>Apartment</option>
+<option value=rooms>Rooms</option>
+<option value=house>House</option>
+<option value=villa>Villa</option>
+<option value=commercial>Commercial</option>
+</select>
+<button id=searchButton type=button>Search</button>
+</div>
+</div>
+<div class=content>
+<main>
+<div class=div-specification>
+<h3 id=statement> </h3>
+</div>
+<hr>
+<div class=container style=display:flex;flex-direction:column>
+<h1>Available Properties</h1>
+<% if (locals.message) { %>
+<p style=color:red;text-align:center;margin-top:200px;padding-bottom:200px><%= locals.message %></p>
+<% } else { %>
+<div class=property-cards>
+<% properties.forEach(pro => { %>
+<div class=property-card>
+<% if (pro.isOwner) { %>
+<span style=display:flex;align-items:center;color:#007bff><i class="fa-solid fa-house" style=margin-right:10px></i> <b>your property</b></span> <br>
+<% }  %>
+<h4>Property at "<%= pro.propertyAddress %>."</h4>
+<p><span class=specs-text>Pin-code:</span> <span class=specs-info> <%= pro.pincodeOfOwner %> </span> </p>
+<p><span class=specs-text> Size:</span> <span class=specs-info> <%= pro.propertySize %> sqft</span> </p>
+<p><span class=specs-text>Type:</span> <span class=specs-info> <%= pro.propertyType %> </span> </p>
+<p><span class=specs-text>Sub-type:</span> <span class=specs-info>on <%= pro.rentOrSell %> </span> </p>
+<p><span class=specs-text>Price Range:</span> <span class=specs-info> Rs.(<%= pro.minPrice %> - <%= pro.maxPrice %>)</span> </p>
+<a href="/property-details/<%= pro.propertyId %>" class=button>View Details</a>
+</div>
+<% }) %>
+</div>
+<% } %>
+</div>
+</main></div>
+<%- include('partials/loginModal.ejs') %>
 
-            <label for="minPrice">Min Price (INR):</label>
-            <input type="range" id="minPrice" name="priceRange" min="0" max="100000" step="1000" value="0">
-            <p>Selected Min Price: <span id="minPriceValue">0</span></p>
-
-            <label for="maxPrice">Max Price (INR):</label>
-            <input type="range" id="maxPrice" name="priceRange" min="0" max="1000000" step="1000" value="0">
-            <p>Selected Max Price: <span id="maxPriceValue">0</span></p>
-
-            <label for="pincode">Pincode:</label>
-            <input type="number" id="pincode" name="pincode" placeholder="Pincode">
-
-            <label for="type">Property Type:</label>
-            <select id="typeProperty" name="typeProperty">
-                <option value="">Select type</option>
-                <option value="Residential">Residential</option>
-                <option value="Commercial">Commercial</option>
-            </select>
-
-            <label for="type">Property Live Type:</label>
-            <select id="typePropertyLiveType" name="typePropertyLiveType">
-                <option value="">Select type</option>
-                <option value="apartment">Apartment</option>
-                <option value="rooms">Rooms</option>
-                <option value="house">House</option>
-                <option value="villa">Villa</option>
-                <option value="commercial">Commercial</option>
-            </select>
-
-            <button id="searchButton" type="button">Search</button>
-        </div>
-    </div>
-    <div class="content"> 
-        <%- include('partials/nav.ejs') %> <!--including navbar-->
-        <main>
-            <div class="div-specification"> 
-                <h3 id="statement">  </h3>
-            </div>
-            <hr>
-            <div class="container" style="display: flex;flex-direction: column;">
-                <h1>Available Properties</h1>
-
-                <% if (locals.message) { %>
-
-                  <p style="color: red;text-align: center;margin-top: 200px;padding-bottom: 200px;"><%= locals.message %></p>
- 
-              <% } else { %>
-                
-                <div class="property-cards">
-                  <% properties.forEach(pro => { %>
-                      <div class="property-card">
-                        <% if (pro.isOwner) { %>
-                          <span style="display: flex;align-items: center;color: #007bff;"><i class="fa-solid fa-house" style="margin-right: 10px;"></i> <b>your property</b></span> <br>
-                        <% }  %>
-                   
-                        
-                          <h4>Property at "<%= pro.propertyAddress %>."</h4>
-                          <p><span class="specs-text">Pin-code:</span> <span class="specs-info">  <%= pro.pincodeOfOwner %> </span> </p>
-                          <p><span class="specs-text"> Size:</span> <span class="specs-info">  <%= pro.propertySize %> sqft</span> </p>
-                          <p><span class="specs-text">Type:</span> <span class="specs-info">  <%= pro.propertyType %> </span> </p>
-                          <p><span class="specs-text">Sub-type:</span> <span class="specs-info">on <%= pro.rentOrSell %> </span> </p>
-                         
-                          <p><span class="specs-text">Price Range:</span> <span class="specs-info">  Rs.(<%= pro.minPrice %> - <%= pro.maxPrice %>)</span> </p>
-                          <a href="/property-details/<%= pro.propertyId %>" class="button">View Details</a>
-                      </div>
-                  <% }) %>
-              
-              </div>
-        
-              <% } %>
-
- 
-            </div>
-        </div>
-    </main>
-
-    
-        <!-- model for login start -->
-        <%- include('partials/loginModal.ejs') %>
-        <!-- model for login end -->
-
-        <!-- model for register start -->
-            <%- include('partials/registerModal.ejs') %>
-        <!-- model for register end -->
-
-        <!-- <div style="width: 100%; position: absolute;bottom: 0;"> 
-        <%- include('partials/footer.ejs') %>
-    </div> -->
-    <script src="Js/properties.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2poTnkFStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.1/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJzAaZHnPSN4im+KrfCk6NrQtbOse46LrD3sKX7nzrTda0" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-tn6fNgABXk6uaK6AUqGZIbbIiw5yG48fuoxT+WEJHe1hvIrnIJOE2gHZo8hYcD5D" crossorigin="anonymous"></script>
+<%- include('partials/registerModal.ejs') %>
+<script src=Js/properties.js></script>
+<script src=https://code.jquery.com/jquery-3.4.1.slim.min.js integrity=sha384-J6qa4849blE2poTnkFStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.1/dist/umd/popper.min.js integrity=sha384-Q6E9RHvbIyZFJoft+2mJzAaZHnPSN4im+KrfCk6NrQtbOse46LrD3sKX7nzrTda0 crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js integrity=sha384-tn6fNgABXk6uaK6AUqGZIbbIiw5yG48fuoxT+WEJHe1hvIrnIJOE2gHZo8hYcD5D crossorigin=anonymous></script>
 </body>
 </html>

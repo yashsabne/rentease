@@ -1,154 +1,95 @@
- 
+
 <!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
-  
-    <title>Rent/Sell home second page</title>
-    </head>
-    <body>
-         
-        <div class="sidebarAndToggle"> 
-        <div class="sidebar">
-          <a href="/home">Home</a>
-          <hr>
-          <a class="active" href="/rent-sell-home">Rent or Sell a Home</a>
-    
-          <a href="/properties">Search For rental home or Buy Home</a>
-    
-          <a href="/properties">Buy home </a>
-        
-          <a  href="/RentEase-about-us">About us</a>
-    </div> 
-
-    <!-- <div class="toggleBtn">
-        <button>toggle it</button>
-    </div> -->
-
-    
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css integrity=sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin=anonymous referrerpolicy=no-referrer>
+<link rel=stylesheet href=css/style.css>
+<link rel="shortcut icon" href=imgs/logo.png type=image/x-icon>
+<title>Rent/Sell home second page</title>
+</head>
+<body>
+<%- include('partials/nav.ejs') %>
+<div class=sidebarAndToggle>
+<div class=sidebar>
+<a href=/home>Home</a>
+<a class=active href=/rent-sell-home>Rent or Sell a Home</a>
+<a href=/your-property-listing>your property listing</a>
+<a href=/properties>Search For rental home or Buy Home</a>
+<a href=/properties>Buy home </a>
+<a href=/RentEase-about-us>About us</a>
 </div>
-    <div class="content"> 
-      <%- include('partials/nav.ejs') %> <!--including navbar-->
-  
-  
-  <main>
-    <div class="div-specification"> 
-      <h3 id="statement">  </h3>
-    </div><hr>
+</div>
+<div class=content>
+<main>
+<div class=div-specification>
+<h3 id=statement> </h3>
+</div><hr>
 <div class="rent-main-section d-flex">
-
-
-  <div class="rent-statement">
-    <small>to make your home visible for renting or selling to all you need to fill the below details  </small>
-  </div>
-
-  <div class="additional-details" style="display: none;">
-    <div class="form-group">
-      <input type="text" class="form-control" id="newField1" name="newField1" placeholder="New Field 1" required>
-    </div>
-    <div class="form-group">
-      <input type="text" class="form-control" id="newField2" name="newField2" placeholder="New Field 2" required>
-    </div>
-  </div>
-  
-  
-
-  <div class="form-rent-home">
-    <!-- <form action="/rent-sell-home" method="post">
-
-        
- 
-
-<div class="submit-btn d-flex justify-content-center mt-3"> 
-    <button type="submit" class="btn btn-success">Submit</button>
-  </div>
-    </form> -->
-
-
-    <form action="/rent-sell-home-secondePage" method="post">
-        <div class="input-group">
-            <label for="propertyAddress">Property Address</label>
-            <input type="text" id="propertyAddress" name="propertyAddress" placeholder="Enter the property address" required>
-        </div>
-        
-        <div class="price-property d-flex"> 
-        <div class="input-group mr-2">
-            <label for="minPrice">Minimum Price</label>
-            <input type="number" id="minPrice" name="minPrice" placeholder="Minimum Price" required>
-        </div>
- 
-        <div class="input-group">
-            <label for="maxPrice">Maximum Price</label>
-            <input type="number" id="maxPrice" name="maxPrice" placeholder="Maximum Price" required>
-        </div>
-    </div>
-        <div class="input-group">
-            <label for="propertyType">Property Type</label>
-            <select id="propertyType" name="propertyType" required>
-                <option value="">Select type</option>
-                <option value="apartment">Apartment</option>
-                <option value="rooms">Rooms</option>
-                <option value="house">House</option>
-                <option value="villa">Villa</option>
-                <option value="commercial">Commercial</option>
-            </select>
-        </div>
-        <div class="input-group" style="display: flex;flex-direction: column;">
-            <label for="propertyDescription">Property Description</label> 
-            <textarea id="propertyDescription" name="propertyDescription" rows="4" placeholder="Describe the property" required></textarea>
-        </div>
-        <div class="input-group">
-            <label for="propertySize">Property Size (in sq ft)</label>
-            <input type="number" id="propertySize" name="propertySize" placeholder="Enter the property size" required>
-        </div>
-      
-        <div class="submit-btn">
-            <button type="submit">Submit</button>
-        </div>
-    </form>
-
-  </div>
- 
+<div class=rent-statement>
+<small>to make your home visible for renting or selling to all you need to fill the below details </small>
+</div>
+<div class=additional-details style=display:none>
+<div class=form-group>
+<input class=form-control id=newField1 name=newField1 placeholder="New Field 1" required>
+</div>
+<div class=form-group>
+<input class=form-control id=newField2 name=newField2 placeholder="New Field 2" required>
+</div>
+</div>
+<div class=form-rent-home>
+<form action=/rent-sell-home-secondePage method=post>
+<div class=input-group>
+<label for=propertyAddress>Property Address</label>
+<input id=propertyAddress name=propertyAddress placeholder="Enter the property address" required>
+</div>
+<div class="price-property d-flex">
+<div class="input-group mr-2">
+<label for=minPrice>Minimum Price</label>
+<input type=number id=minPrice name=minPrice placeholder="Minimum Price" required>
+</div>
+<div class=input-group>
+<label for=maxPrice>Maximum Price</label>
+<input type=number id=maxPrice name=maxPrice placeholder="Maximum Price" required>
+</div>
+</div>
+<div class=input-group>
+<label for=propertyType>Property Type</label>
+<select id=propertyType name=propertyType required>
+<option value="">Select type</option>
+<option value=apartment>Apartment</option>
+<option value=rooms>Rooms</option>
+<option value=house>House</option>
+<option value=villa>Villa</option>
+<option value=commercial>Commercial</option>
+</select>
+</div>
+<div class=input-group style=display:flex;flex-direction:column>
+<label for=propertyDescription>Property Description</label>
+<textarea id=propertyDescription name=propertyDescription rows=4 placeholder="Describe the property" required></textarea>
+</div>
+<div class=input-group>
+<label for=propertySize>Property Size (in sq ft)</label>
+<input type=number id=propertySize name=propertySize placeholder="Enter the property size" required>
+</div>
+<div class=submit-btn>
+<button type=submit>Submit</button>
+</div>
+</form>
+</div>
 </div>
 <%- include('partials/footer.ejs') %>
-  </main>
-    </div>
+</main>
+</div>
+<%- include('partials/loginModal.ejs') %>
 
- 
-        <!-- model for login start -->
-        <%- include('partials/loginModal.ejs') %>
-        <!-- model for login end -->
-
-        <!-- model for register start -->
-            <%- include('partials/registerModal.ejs') %>
-        <!-- model for register end -->
-
-      
-
-    <script>
-                document.getElementById('rentForm').addEventListener('submit', function(event) {
-            const propertyPhotos = document.getElementById('propertyPhotos');
-            if (propertyPhotos.files.length < 3) {
-                event.preventDefault();
-                document.getElementById('error-message').style.display = 'block';
-            } else {
-                document.getElementById('error-message').style.display = 'none';
-            }
-        });
-    </script>
-  
-
-    <script src="Js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+<%- include('partials/registerModal.ejs') %>
+<script>document.getElementById("rentForm").addEventListener("submit",(function(e){document.getElementById("propertyPhotos").files.length<3?(e.preventDefault(),document.getElementById("error-message").style.display="block"):document.getElementById("error-message").style.display="none"}))</script>
+<script src=Js/main.js></script>
+<script src=https://code.jquery.com/jquery-3.4.1.slim.min.js integrity=sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js integrity=sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js integrity=sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 crossorigin=anonymous></script>
+</body>
 </html>

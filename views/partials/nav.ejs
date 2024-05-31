@@ -1,41 +1,28 @@
-<nav class="navbar">
-    <a class="navbar-brand" >
-      <img src="https://www.shutterstock.com/image-vector/property-logos-template-260nw-774486358.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-      RentEase
-    </a>
-
-   
-
-    <div class="dropdown">
-      <button class="dropbtn"><i class="fa-solid fa-circle-user" style="color: 00539C;"></i></button> 
-      <span id="appreciate" style="font-weight: 600;font-size: large;">  
-        <%= locals.messForClient %>
-        </span>
-      <div class="dropdown-content">
-        <a  class="openModalLink">login</a> 
-        <a  class="openModalLinkReg">register</a>
-        <a href="/logout">logout</a>
-      <hr  style="margin-top: -1px;">
-        <a href="#" style="margin-top: -10px;">Need help?</a>
-      </div>
-    </div>
-
- 
-    <div class="dropdown-notification">
-      <button class="dropbtnNotification"><i class="fa-regular fa-bell"></i> notification</button>
-      <div class="dropdown-contentnotify  ">
-        <ul>
-          <li> 
-            this is under construction
-          </li>
-          <li> 
-            this is under construction
-          </li>
-          <li> 
-            this is under construction
-          </li>
-        
-        </ul>
-      </div>
-    </div>
+<nav class=navbar>
+  <a class=navbar-brand>
+  <img src=https://www.shutterstock.com/image-vector/property-logos-template-260nw-774486358.jpg width=30 height=30 class="d-inline-block align-top" alt="">
+  RentEase
+  </a>
+  <div class=dropdown>
+  <button class=dropbtn><i class="fa-solid fa-circle-user" style=color:539C></i></button>
+  <span id=appreciate style=font-weight:600;font-size:large>
+  <%= locals.messForClient %>
+  </span>
+  <div class=dropdown-content>
+  <a class=openModalLink>login</a>
+  <a class=openModalLinkReg>register</a>
+  <a href=/logout>logout</a>
+  <hr style=margin-top:-1px>
+  <a href=# style=margin-top:-10px>Need help?</a>
+  </div>
+  </div>
+  <div class=dropdown-notification>
+  <button type=button class=dropbtnNotification id=notificationButton>
+  <i class="fa-regular fa-bell"></i> notification
+  </button>
+  <div class=dropdown-contentnotify id=notificationContent>
+  <ul id=notificationList>
+  </ul>
+  </div>
+  </div>
   </nav>

@@ -1,170 +1,126 @@
- 
+
 <!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
-    <title>Rent/Sell home first page</title>
-    </head>
-    <body>
-         
-        <div class="sidebarAndToggle"> 
-        <div class="sidebar">
-      <a  href="/home">Home</a>
-      <hr>
-      <a class="active" href="/rent-sell-home">Rent or Sell a Home</a>
-
-      <a href="/properties">Search For rental home or Buy Home</a>
-
-      <a href="/properties">Buy home </a>
-  
-      <a  href="/RentEase-about-us">About us</a>
-    </div> 
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css integrity=sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin=anonymous referrerpolicy=no-referrer>
+<link rel=stylesheet href=css/style.css>
+<link rel="shortcut icon" href=imgs/logo.png type=image/x-icon>
+<title>Rent/Sell home first page</title>
+</head>
+<body>
+<%- include('partials/nav.ejs') %>
+<div class=sidebarAndToggle>
+<div class=sidebar>
+<a href=/home>Home</a>
+<a class=active href=/rent-sell-home>Rent or Sell a Home</a>
+<a href=/your-property-listing>your property listing</a>
+<a href=/properties>Search For rental home or Buy Home</a>
+<a href=/properties>Buy home </a>
+<a href=/RentEase-about-us>About us</a>
 </div>
-    <div class="content"> 
-      <%- include('partials/nav.ejs') %> <!--including navbar-->
-  
-  
-  <main>
-    <div class="div-specification"> 
-      <h3 id="statement">  </h3>
-    </div><hr>
+</div>
+<div class=content>
+<main>
+<div class=div-specification>
+<h3 id=statement> </h3>
+</div><hr>
 <div class="rent-main-section d-flex">
-
-
-  <div class="rent-statement">
-    <small>to make your home visible for renting or selling to all you need to fill the below details  </small>
-  </div>
-
-  <div class="additional-details" style="display: none;">
-    <div class="form-group">
-      <input type="text" class="form-control" id="newField1" name="newField1" placeholder="New Field 1" required>
-    </div>
-    <div class="form-group">
-      <input type="text" class="form-control" id="newField2" name="newField2" placeholder="New Field 2" required>
-    </div>
-  </div>
-  
-  
-
-  <div class="form-rent-home">
-    <form action="/rent-sell-home/submit-first" method="post">
-
-      <div class="input-group mb-3">
-         
-        <input type="text" class="form-control" placeholder="Name of house owner" aria-label="Username" name="nameOfHouseOwner" aria-describedby="basic-addon1" required>
-      </div>
-      
-      <div class="input-group mb-3">
-        <input type="email" class="form-control" placeholder="Email of Owner" aria-label="Recipient's username" name="emailOfOwner" aria-describedby="basic-addon2" required>
-        <div class="input-group-append">
-          <span class="input-group-text" id="basic-addon2">..@example.com</span>
-        </div>
-      </div>
-      
-      <label for="country">Phone Number</label>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon3">
-            <select id="country" name="country">
-            <option value="91">+91 (India)</option>
-            <option value="1">+1 (USA)</option>
-            <option value="86">+86 (China)</option>
-            <option value="7">+7 (Russia)</option>
-            <option value="62">+62 (Indonesia)</option>
-            <option value="55">+55 (Brazil)</option>
-            <option value="81">+81 (Japan)</option>
-            <option value="92">+92 (Pakistan)</option>
-            <option value="234">+234 (Nigeria)</option>
-            <option value="880">+880 (Bangladesh)</option>
-            <option value="62">+62 (Indonesia)</option>
-            <option value="91">+91 (India)</option>
-            <option value="92">+92 (Pakistan)</option>
-            <option value="234">+234 (Nigeria)</option>
-            <option value="880">+880 (Bangladesh)</option>
-            <option value="62">+62 (Indonesia)</option>
-            <option value="91">+91 (India)</option>
-            <option value="92">+92 (Pakistan)</option>
-            <option value="234">+234 (Nigeria)</option>
-          </select></span>
-        </div>
-        <input type="number" class="form-control" id="basic-url" name="ownerPhnNumber" placeholder="Phone number" aria-describedby="basic-addon3" required>
-      </div>
-      
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Pin-code</span>
-        </div>
-        <input type="number" class="form-control" id="enterPincode" name="pincodeOfOwner" placeholder="Enter the pin-code" required >
-        <div class="input-group-append">
-          <div class="input-group-text" id="getCity" style="color: blue;">get City</div>
-        </div>
-      </div>
-      
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Your City</span>
-        </div>
-        <span class="form-control" id="your-city" > <progress>getting city</progress> </span>
-      </div>
-      <!-- <button type="button" class="btn btn-success" type="submit" id="btnSubn">Success</button> -->
-
-      <div class="type-text"  > 
-      <h6>Select Property type</h6>
-      <div class="border-div"></div>
-    </div>
-
-    <div class="type-land">
-       <input type="radio" name="propertyType" id="CommercialType" value="Commercial" style="display: none;">
-      <div class="Commercial land-typeCR"><label for="CommercialType"> Commercial</label> </div> 
-      <input type="radio" name="propertyType" id="ResidentialType" value="Residential" style="display: none;">
-      <div class="Residential land-typeCR"><label for="ResidentialType"> Residential</label></div>
-    </div>
-    <div class="sub-type">  
-      <div class="type-text"  > 
-        <h6>select Property sub Type</h6>
-        <div class="sub-types-down-here">
-          <input type="radio" name="rentOrSell" id="rent" value="rent" style="display: none;">
-          <div  class="Stype"><label for="rent">Rent</label></div>
-          <input type="radio" name="rentOrSell" id="sell" value="sell" style="display: none;">
-          <div class="Stype"><label for="sell">Sell</label></div>
-        </div>
-    
-      </div>
-    </div>
-
-<div class="submit-btn d-flex justify-content-center mt-3"> 
-    <button type="submit" class="btn btn-success">Submit</button>
-  </div>
-    </form>
-  </div>
- 
+<div class=rent-statement>
+<small>to make your home visible for renting or selling to all you need to fill the below details </small>
 </div>
-
+<div class=form-rent-home>
+<form action=/rent-sell-home/submit-first method=post id=firstform>
+<div class="input-group mb-3">
+<input class=form-control placeholder="Name of house owner" aria-label=Username name=nameOfHouseOwner aria-describedby=basic-addon1 required>
+</div>
+<div class="input-group mb-3">
+<input type=email class=form-control placeholder="Email of Owner" aria-label="Recipient's username" name=emailOfOwner aria-describedby=basic-addon2 required>
+<div class=input-group-append>
+<span class=input-group-text id=basic-addon2>..@example.com</span>
+</div>
+</div>
+<label for=country>Phone Number</label>
+<div class="input-group mb-3">
+<div class=input-group-prepend>
+<span class=input-group-text id=basic-addon3>
+<select id=country name=country>
+<option value=91>+91 (India)</option>
+<option value=1>+1 (USA)</option>
+<option value=86>+86 (China)</option>
+<option value=7>+7 (Russia)</option>
+<option value=62>+62 (Indonesia)</option>
+<option value=55>+55 (Brazil)</option>
+<option value=81>+81 (Japan)</option>
+<option value=92>+92 (Pakistan)</option>
+<option value=234>+234 (Nigeria)</option>
+<option value=880>+880 (Bangladesh)</option>
+<option value=62>+62 (Indonesia)</option>
+<option value=91>+91 (India)</option>
+<option value=92>+92 (Pakistan)</option>
+<option value=234>+234 (Nigeria)</option>
+<option value=880>+880 (Bangladesh)</option>
+<option value=62>+62 (Indonesia)</option>
+<option value=91>+91 (India)</option>
+<option value=92>+92 (Pakistan)</option>
+<option value=234>+234 (Nigeria)</option>
+</select></span>
+</div>
+<input type=number class=form-control id=basic-url name=ownerPhnNumber placeholder="Phone number" aria-describedby=basic-addon3 required>
+</div>
+<div class="input-group mb-3">
+<div class=input-group-prepend>
+<span class=input-group-text>Pin-code</span>
+</div>
+<input type=number class=form-control id=enterPincode name=pincodeOfOwner placeholder="Enter the pin-code" required>
+<div class=input-group-append>
+<div class=input-group-text id=getCity>get City</div>
+</div>
+</div>
+<div class=input-group>
+<div class=input-group-prepend>
+<span class=input-group-text>Your City</span>
+</div>
+<span class=form-control id=your-city> <progress>getting city</progress> </span>
+</div>
+<div class=type-text>
+<h6>Select Property type</h6>
+<div class=border-div></div>
+</div>
+<div class=type-land>
+<input type=radio name=propertyType id=CommercialType value=Commercial style=display:none>
+<div class="Commercial land-typeCR"><label for=CommercialType> Commercial</label> </div>
+<input type=radio name=propertyType id=ResidentialType value=Residential style=display:none>
+<div class="Residential land-typeCR"><label for=ResidentialType> Residential</label></div>
+</div>
+<div class=sub-type>
+<div class=type-text>
+<h6>select Property sub Type</h6>
+<div class=sub-types-down-here>
+<input type=radio name=rentOrSell id=rent value=rent style=display:none>
+<div class=Stype><label for=rent>Rent</label></div>
+<input type=radio name=rentOrSell id=sell value=sell style=display:none>
+<div class=Stype><label for=sell>Sell</label></div>
+</div>
+</div>
+</div>
+<div class="submit-btn d-flex justify-content-center mt-3">
+<button type=submit class="btn btn-success">Submit</button>
+</div>
+</form>
+</div>
+</div>
 <%- include('partials/footer.ejs') %>
-  </main>
-    </div>
+</main>
+</div>
+<%- include('partials/loginModal.ejs') %>
 
-  
-        <!-- model for login start -->
-        <%- include('partials/loginModal.ejs') %>
-        <!-- model for login end -->
-
-        <!-- model for register start -->
-            <%- include('partials/registerModal.ejs') %>
-        <!-- model for register end -->
- 
-
-    <script src="Js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+<%- include('partials/registerModal.ejs') %>
+<script src=Js/main.js></script>
+<script src=https://code.jquery.com/jquery-3.4.1.slim.min.js integrity=sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js integrity=sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js integrity=sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 crossorigin=anonymous></script>
+</body>
 </html>

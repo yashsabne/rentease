@@ -1,85 +1,59 @@
-<div class="modal" id="myModals">
-
-    <div class="main-cont-register">
-
-      <div class="log-flex">
-        <div class="for-register-only">
-          <div class="login-register">
-
-            <form action="/register" method="POST">
-
-              <div class="login-register-form">
-                <div class="logo-login">
-                  <a class="navbar-brand brandName" href="/">
-                    <img
-                      src="https://www.shutterstock.com/image-vector/property-logos-template-260nw-774486358.jpg"
-                      width="30" height="30" class="d-inline-block align-top" alt="">
-                    RentEase
-                  </a>
-                </div>
-                <div class="emailOtp">
-                  <div class="form-group d-flex">
-                    <input type="email" id="imput-ur" style="background-color: aliceblue;"
-                      class="form-control emailSpecialInput" name="username" placeholder="Email address" required>
-                    <button type="button" class="btn btn-dark otprelated" id="sendOTP">Send OTP</button>
-                  </div>
-                  <div class="form-group d-flex" id="otpField" style=" margin-top: 10px;">
-                    <input type="text" id="imput-otpr" style="background-color: aliceblue;"
-                      class="form-control emailSpecialInput" name="otp" placeholder="Enter OTP" required>
-                    <button type="button" class="btn btn-dark otprelated" id="verifyOTP">Verify OTP</button>
-                  </div>
-                </div>
-
-
-
-
-
-                <div class="form-group">
-                  <input type="text" id="imput-name" class="form-control" autocomplete="off" name="fullName"
-                    placeholder="Full Name" required>
-                </div>
-
-                <div class="form-group">
-                  <input type="password" id="imput-p" class="form-control" autocomplete="off" name="password"
-                    placeholder="Password" required>
-                </div>
-                <div class="form-group">
-                  <input type="password" id="imput-cnf" class="form-control" autocomplete="off" name="cnfpass"
-                    placeholder="Confirm Password" required>
-                </div>
-                <span class="passcheck"><input type="checkbox" onclick="viewPass()" id="passcheck"><label
-                    for="passcheck">Show Password</label></span>
-
-
-                <div class="form-group">
-                  <input type="number" class="form-control" id="imput-c" placeholder="Phone Number" name="phone"
-                    required>
-                </div>
-
-                <div class="form-group">
-                  <input type="date" id="imput-dob" class="form-control" name="dob" autocomplete="off"
-                    placeholder="DOB" required>
-                </div>
-
-                <button type="submit" class="btn btn-dark ba" id="funNAme">Register</button>
-              </div>
-            </form>
-
-            <div style="display: flex;align-items: center;" class="div-or-line">
-              <div class="div1"></div>
-              <div class="div2">or</div>
-              <div class="div1"></div>
-            </div>
-
-            <div class="other-login">
-              <span> <a href="/auth/google"> <i class="fa-brands fa-google"></i> login with google</span></a>
-            </div>
-            <small><a href="" style="text-align: center; ">forgot password?</a></small>
-            <div class="login-register new-register">
-              Already have an account?<a class="openModalLink" style="cursor: pointer;">Login here</a> <br>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class=modal id=myModals>
+  <div class=main-cont-register>
+  <div class=log-flex>
+  <div class=for-register-only>
+  <div class=login-register>
+  <form action=/register method=POST>
+  <div class=login-register-form>
+  <div class=logo-login>
+  <a class="navbar-brand brandName" href=/ >
+  <img src=https://www.shutterstock.com/image-vector/property-logos-template-260nw-774486358.jpg width=30 height=30 class="d-inline-block align-top" alt="">
+  RentEase
+  </a>
+  </div>
+  <div class=emailOtp>
+  <div class="form-group d-flex">
+  <input type=email id=imput-ur style=background-color:#f0f8ff class="form-control emailSpecialInput" name=username placeholder="Email address" required>
+  <button type=button class="btn btn-dark otprelated" id=sendOTP>Send OTP</button>
+  </div>
+  <div class="form-group d-flex" id=otpField style=margin-top:10px>
+  <input id=imput-otpr style=background-color:#f0f8ff class="form-control emailSpecialInput" name=otp placeholder="Enter OTP" required>
+  <button type=button class="btn btn-dark otprelated" id=verifyOTP>Verify OTP</button>
+  </div>
+  </div>
+  <div class=form-group>
+  <input id=imput-name class=form-control autocomplete=off name=fullName placeholder="Full Name" required>
+  </div>
+  <div class=form-group>
+  <input type=password id=imput-p class=form-control autocomplete=off name=password placeholder=Password required>
+  </div>
+  <div class=form-group>
+  <input type=password id=imput-cnf class=form-control autocomplete=off name=cnfpass placeholder="Confirm Password" required>
+  </div>
+  <span class=passcheck><input type=checkbox onclick=viewPass() id=passcheck><label for=passcheck>Show Password</label></span>
+  <div class=form-group>
+  <input type=number class=form-control id=imput-c placeholder="Phone Number" name=phone required>
+  </div>
+  <div class=form-group>
+  <input type=date id=imput-dob class=form-control name=dob autocomplete=off placeholder=DOB required>
+  </div>
+  <button type=submit class="btn btn-dark ba" id=funNAme>Register</button>
+  </div>
+  </form>
+  <div style=display:flex;align-items:center class=div-or-line>
+  <div class=div1></div>
+  <div class=div2>or</div>
+  <div class=div1></div>
+  </div>
+  <div class=other-login>
+  <span> <a href=/auth/google> <i class="fa-brands fa-google"></i> login with google</a></span>
+  </div>
+  <small><a href="" style=text-align:center>forgot password?</a></small>
+  <div class="login-register new-register">
+  Already have an account?<a class=openModalLink style=cursor:pointer>Login here</a> <br>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
   </div>
