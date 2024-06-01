@@ -1,75 +1,78 @@
 <!doctype html>
-<html lang=en>
+<html lang="en">
 <head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css integrity=sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh crossorigin=anonymous>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin=anonymous referrerpolicy=no-referrer>
-<link rel=stylesheet href=css/style.css>
-<link rel="shortcut icon" href=imgs/logo.png type=image/x-icon>
-<link rel=stylesheet href=css/yourlist.css>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="css/style.css">
+<link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
+<link rel="stylesheet" href="css/yourlist.css">
 <title>Your property listing</title>
 </head>
 <body>
 <%- include('partials/nav.ejs') %>
-<div class=sidebarAndToggle>
-<div class=sidebar>
-<a href=/home>Home</a>
-<a class=active href=/your-property-listing>your property listing</a>
-<a href=/rent-sell-home>Rent or Sell a Home</a>
-<a href=/properties>Search For rental home or Buy Home</a>
-<a href=/properties>Buy home </a>
-<a href=/RentEase-about-us>About us</a>
+<div class="sidebarAndToggle">
+    <div class="sidebar">
+        <a href="/home">Home</a>
+        <a class="active" href="/your-property-listing">Your Property Listing</a>
+        <a href="/rent-sell-home">Rent or Sell a Home</a>
+        <a href="/properties">Search For Rental Home or Buy Home</a>
+        <a href="/properties">Buy Home</a>
+        <a href="/RentEase-about-us">About Us</a>
+    </div>
 </div>
-</div>
-<div class=content>
-<main>
-<div class=div-specification>
-<h3 id=statement></h3>
-</div>
-<hr>
-<% if (propertyListings.length > 0) { %>
-<div class=property-listings>
-<% propertyListings.forEach((listing, index) => { %>
-<div class=property-listing>
-<h2>Property <%= index + 1 %></h2>
-<div class=owner-details>
-<h3>Owner Details</h3>
-<p>Name: <%= listing.ownerDetails.nameOfHouseOwner %></p>
-<p>Phone: <%= listing.ownerDetails.emailOfOwner %></p>
-<p>Email: <%= listing.ownerDetails.ownerPhnNumber %></p>
-</div>
-<div class=property-details>
-<h3>Property Details</h3>
-<p>Address: <%= listing.propertyDetails.propertyAddress %></p>
-<p>Type: <%= listing.propertyDetails.propertyType %></p>
-<p>Price: <%= listing.propertyDetails.minPrice %> - <%= listing.propertyDetails.maxPrice %></p>
-</div>
-<div class=property-images>
-<h3 style=border-bottom:0>Property <span style="border-bottom:2px solid #000">Images:</span></h3>
-<% if (listing.propertyImages && listing.propertyImages.length > 0) { %>
-<% listing.propertyImages.forEach((image, index) => { %>
-<img src="/image/<%= image._id %>" alt="<%= image.name %>">
-<% }) %>
-<% } else { %>
-<p>No images found for this property.</p>
-<% } %>
-</div>
-</div>
-<% }) %>
-</div>
-<% } else { %>
-<p>No property listings found.</p>
-<% } %>
-<%- include('partials/footer.ejs') %>
-</main>
+<div class="content">
+    <main>
+        <div class="div-specification">
+            <h3 id="statement"></h3>
+        </div>
+        <hr>
+        <% if (propertyListings.length > 0) { %>
+        <div class="property-listings">
+            <% propertyListings.forEach((listing, index) => { %>
+            <div class="property-listing">
+                <h2>Property <%= index + 1 %> <small style="font-size: x-small;">(id:<%= listing.propid._id %>) </small> </h2>
+                <div class="owner-details">
+                    <h3>Owner Details</h3>
+                    <p>Name: <%= listing.ownerDetails.nameOfHouseOwner %></p>
+                    <p>Phone: <%= listing.ownerDetails.emailOfOwner %></p>
+                    <p>Email: <%= listing.ownerDetails.ownerPhnNumber %></p>
+                </div>
+                <div class="property-details">
+                    <h3>Property Details</h3>
+                    <p>Address: <%= listing.propertyDetails.propertyAddress %></p>
+                    <p>Type: <%= listing.propertyDetails.propertyType %></p>
+                    <p>Price: <%= listing.propertyDetails.minPrice %> - <%= listing.propertyDetails.maxPrice %></p>
+                </div>
+                <div class="property-images">
+                    <h3 style="border-bottom: 0;">Property <span style="border-bottom: 2px solid #000">Images:</span></h3>
+                    <% if (listing.propertyImages && listing.propertyImages.length > 0) { %>
+                    <% listing.propertyImages.forEach((image, index) => { %>
+                    <img src="/image/<%= image._id %>" alt="<%= image.name %>">
+                    <% }) %>
+                    <% } else { %>
+                    <p>No images found for this property.</p>
+                    <% } %>
+                </div>
+                <form action="/delete-property" method="post" class="mt-3">
+                    <input type="hidden" name="propertyId" value="<%= listing.propid._id %>">
+                    <button type="submit" class="btn btn-danger">Delete Property</button>
+                </form>
+            </div>
+            <% }) %>
+        </div>
+        <% } else { %>
+        <p>No property listings found.</p>
+        <% } %>
+        <%- include('partials/footer.ejs') %>
+    </main>
 </div>
 <%- include('partials/loginModal.ejs') %>
-
 <%- include('partials/registerModal.ejs') %>
-<script src=Js/properties.js></script>
-<script src=https://code.jquery.com/jquery-3.4.1.slim.min.js integrity=sha384-J6qa4849blE2poTnkFStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo crossorigin=anonymous></script>
-<script src=https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.1/dist/umd/popper.min.js integrity=sha384-Q6E9RHvbIyZFJoft+2mJzAaZHnPSN4im+KrfCk6NrQtbOse46LrD3sKX7nzrTda0 crossorigin=anonymous></script>
-<script src=https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js integrity=sha384-tn6fNgABXk6uaK6AUqGZIbbIiw5yG48fuoxT+WEJHe1hvIrnIJOE2gHZo8hYcD5D crossorigin=anonymous></script>
+<script src="Js/properties.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2poTnkFStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.1/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJzAaZHnPSN4im+KrfCk6NrQtbOse46LrD3sKX7nzrTda0" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-tn6fNgABXk6uaK6AUqGZIbbIiw5yG48fuoxT+WEJHe1hvIrnIJOE2gHZo8hYcD5D" crossorigin="anonymous"></script>
 </body>
 </html>
